@@ -1,0 +1,47 @@
+#include <avr/io.h>//input output
+#define F_CPU 16000000UL//kecepatan clock
+
+int main() {
+  // put your setup code here, to run once:
+  DDRB |= (1 <<PINB5);//Set PINB5 1(sebagai output) memanfaat
+  while(1) {
+  PORTB |= (1 <<PINB5);
+  delay_ms(1000);
+  PORTB &= ~(1 <<PINB5);
+  delay_ms(1000);
+
+}
+return 0;
+}
+void delay_ms(uint16_t milliseconds) {
+    while(milliseconds) {
+        // Mengatur prescaler 64 untuk timer1 (16-bit timer) untuk periode 1 ms
+        TCCR1B |= (1 << CS11) | (1 << CS10); // Prescaler 64
+        TCNT1 = 0; // Reset counter value
+        while (TCNT1 < 125); // Timer akan menghitung sebanyak 125 siklus untuk 1 ms pada prescaler 64
+        milliseconds--;
+    }}
+
+
+Program di atas adalah contoh program untuk mengontrol LED yang terhubung ke pin 13 pada mikrokontroler AVR (misalnya ATmega328P yang digunakan dalam Arduino Uno). Program ini menggunakan bahasa C dan berfungsi untuk membuat LED berkedip dengan interval 1 detik menggunakan fungsi delay milidetik.
+
+### Kode Utama:
+- **Setup**: Membuat pin 13 sebagai output dengan mengatur bit tertentu pada register `DDRB`.
+- **Loop**: Mengatur LED untuk menyala dan mati dengan interval 1 detik menggunakan fungsi `delay_ms`.
+
+### Fungsi `delay_ms`:
+Fungsi `delay_ms` adalah fungsi kustom untuk menciptakan delay dalam milidetik (ms) menggunakan timer1 pada mikrokontroler. Fungsi ini diimplementasikan untuk membuat delay yang dibutuhkan dalam program utama.
+
+### Penjelasan Fungsi `delay_ms`:
+- Fungsi `delay_ms` menerima argumen `milliseconds` sebagai jumlah milidetik yang ingin ditunda.
+- Di dalam fungsi ini, prescaler 64 pada timer1 diatur agar menghitung periode 1 ms.
+- `TCNT1` diatur ke 0 untuk mereset nilai hitungan timer1.
+- Di dalam loop `while`, `TCNT1` akan bertambah hingga mencapai nilai 125 untuk menghasilkan delay 1 ms pada prescaler 64.
+- Loop tersebut akan berjalan sebanyak `milliseconds` kali, sehingga memberikan delay total sesuai dengan nilai yang diberikan pada argumen.
+
+### Rekomendasi untuk GitHub:
+1. **Deskripsi**: Program untuk mengendalikan LED pada pin 13 mikrokontroler AVR dengan menggunakan fungsi delay milidetik.
+2. **Instruksi Penggunaan**: Pastikan mikrokontroler yang digunakan kompatibel dengan program. Jelaskan bagaimana program ini mengendalikan LED dan bagaimana pengguna dapat menyesuaikan program untuk keperluan mereka sendiri.
+3. **Catatan Penting**: Sertakan catatan mengenai fungsi `delay_ms` yang kustom. Berikan informasi tambahan mengenai bagaimana pengguna dapat memodifikasi atau menyesuaikan kode sesuai dengan kebutuhan mereka.
+
+Pastikan untuk memberikan informasi yang memadai agar pengguna lain dapat memahami dan menggunakan program ini dengan tepat.

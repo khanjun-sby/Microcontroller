@@ -22,7 +22,8 @@ void delay_ms(uint16_t milliseconds) {
         milliseconds--;
     }}
 
-
+Cek wokwi saya
+https://wokwi.com/projects/385888296138083329
 Program di atas adalah contoh program untuk mengontrol LED yang terhubung ke pin 13 pada mikrokontroler AVR (misalnya ATmega328P yang digunakan dalam Arduino Uno). Program ini menggunakan bahasa C dan berfungsi untuk membuat LED berkedip dengan interval 1 detik menggunakan fungsi delay milidetik.
 
 ### Kode Utama:

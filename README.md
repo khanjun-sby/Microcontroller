@@ -1,4 +1,4 @@
-# Tutorial Mikrokontroler Arduino dengan Penulisan Bahasa C-Style
+# Tutorial Mikrokontroler Arduino dengan Penulisan Bahasa C Programming
 
 Repository ini berisi contoh kode dan tutorial yang bertujuan untuk memperkenalkan pengguna mikrokontroler Arduino pada pengembangan perangkat dengan penulisan kode dalam gaya bahasa C yang lebih mendasar. Dalam penerapan repositori ini, jenis mikrokontroller menggunakan Arduino UNO atau atmega328P
 
